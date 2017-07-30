@@ -1,0 +1,53 @@
+{
+    "version": "0.1.0",
+    "command": "dotnet",
+    "isShellCommand": true,
+    "echoCommand": true,
+    "isBuildCommand": true,
+    "showOutput": "always",
+    "suppressTaskName": true,
+    "problemMatcher": "$msCompile",
+    "args": [],
+    "tasks": [
+        {
+            "taskName": "build (Release)",
+            "args": [
+                "build", "-c", "Release", //"-v", "n",
+                "${workspaceRoot}/src/QuickCharts/QuickCharts.csproj"
+            ]
+        },
+        {
+            "taskName": "build (Debug)",
+            "args": [
+                "build", "-c", "Debug", //"-v", "n",
+                "${workspaceRoot}/src/QuickCharts/QuickCharts.csproj"
+            ]
+        },
+        {
+            "taskName": "run (Release)",
+            "args": [
+                "run", "-c", "Release",
+                "-p","${workspaceRoot}/src/QuickCharts/QuickCharts.csproj"
+            ],
+            "options": {
+                "cwd": "${workspaceRoot}/bin/Release/netcoreapp1.1/"
+            }
+        },
+        {
+            "taskName": "run (Debug)",
+            "args": [
+                "run", "-c", "Debug",
+                "-p","${workspaceRoot}/src/QuickCharts/QuickCharts.csproj"
+            ]
+        },
+        {
+            "taskName": "restore",
+            "args": [
+                "restore", "${workspaceRoot}/src/QuickCharts/QuickCharts.csproj"
+            ],
+            "options": {
+                "cwd": "${workspaceRoot}/bin/Release/netcoreapp1.1/"
+            }
+        }
+    ]
+}
